@@ -1,0 +1,553 @@
+From c5fa4ef8a190cdd7253479ea7492a147b8260b1f Mon Sep 17 00:00:00 2001
+From: Johan Cwiklinski <jcwiklinski@teclib.com>
+Date: Tue, 3 Jul 2018 13:44:06 +0200
+Subject: [PATCH] try to fix F-28 build issue
+
+---
+ xivoclient/src/config_widget/config_widget.ui |  8 +++---
+ xivoclient/src/login_widget/login_widget.ui   | 16 ++++++------
+ .../agent_status_dashboard/agent_status.ui    |  6 ++---
+ .../src/xlets/conference/conference_widget.ui |  2 +-
+ .../src/xlets/directory/directory_widget.ui   |  2 +-
+ xivoclient/src/xlets/fax/fax_widget.ui        |  8 +++---
+ .../src/xlets/history/history_widget.ui       |  2 +-
+ xivoclient/src/xlets/identity/identity.ui     | 26 +++++++++----------
+ xivoclient/src/xlets/people/people_widget.ui  |  4 +--
+ .../src/xlets/services/services_widget.ui     | 12 ++++-----
+ .../src/xlets/switchboard/current_call.ui     | 18 ++++++-------
+ .../src/xlets/switchboard/switchboard.ui      |  6 ++---
+ 12 files changed, 55 insertions(+), 55 deletions(-)
+
+diff --git a/xivoclient/src/config_widget/config_widget.ui b/xivoclient/src/config_widget/config_widget.ui
+index 4ee2e52e..23e596b6 100644
+--- a/xivoclient/src/config_widget/config_widget.ui
++++ b/xivoclient/src/config_widget/config_widget.ui
+@@ -58,7 +58,7 @@
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+-            <string notr="true"/>
++            <!--string notr="true"/-->
+            </property>
+           </widget>
+          </item>
+@@ -229,7 +229,7 @@
+        <item>
+         <widget class="QToolBox" name="features_chooser">
+          <property name="styleSheet">
+-          <string notr="true">border-color: rgb(255, 85, 0);</string>
++          <string>border-color: rgb(255, 85, 0);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+@@ -577,7 +577,7 @@
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="server">
+            <property name="text">
+-            <string notr="true">demo.xivo.solutions</string>
++            <string>demo.xivo.solutions</string>
+            </property>
+           </widget>
+          </item>
+@@ -624,7 +624,7 @@
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="backup_server">
+            <property name="text">
+-            <string notr="true"/>
++            <!--string notr="true"/-->
+            </property>
+           </widget>
+          </item>
+diff --git a/xivoclient/src/login_widget/login_widget.ui b/xivoclient/src/login_widget/login_widget.ui
+index 62ddd3f7..cec58dcc 100644
+--- a/xivoclient/src/login_widget/login_widget.ui
++++ b/xivoclient/src/login_widget/login_widget.ui
+@@ -23,7 +23,7 @@
+    <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+-   <string notr="true"/>
++   <!--string notr="true"/-->
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <property name="spacing">
+@@ -62,7 +62,7 @@
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+-      <string notr="true">background-color: #2C2927;</string>
++      <string>background-color: #2C2927;</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+@@ -138,7 +138,7 @@
+          </font>
+         </property>
+         <property name="styleSheet">
+-         <string notr="true">color:#E77D39;</string>
++         <string>color:#E77D39;</string>
+         </property>
+         <property name="text">
+          <string>LOGIN</string>
+@@ -176,7 +176,7 @@
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+-      <string notr="true"/>
++      <!--string notr="true"/-->
+      </property>
+      <property name="qss_tags" stdset="0">
+       <stringlist notr="true">
+@@ -214,7 +214,7 @@
+          </size>
+         </property>
+         <property name="styleSheet">
+-         <string notr="true"/>
++         <!--string notr="true"/-->
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="spacing">
+@@ -265,7 +265,7 @@
+             </font>
+            </property>
+            <property name="styleSheet">
+-            <string notr="true">color: #2c2927;</string>
++            <string>color: #2c2927;</string>
+            </property>
+            <property name="text">
+             <string>XiVO is a unified communication system that connects phones inside an organization with public and mobile telephone networks.</string>
+@@ -370,7 +370,7 @@
+             </font>
+            </property>
+            <property name="styleSheet">
+-            <string notr="true">color: #2C2927;</string>
++            <string>color: #2C2927;</string>
+            </property>
+            <property name="text">
+             <string>Remember me</string>
+@@ -505,7 +505,7 @@
+                 </size>
+                </property>
+                <property name="text">
+-                <string notr="true"/>
++                <!--string notr="true"/-->
+                </property>
+                <property name="margin">
+                 <number>0</number>
+diff --git a/xivoclient/src/xlets/agent_status_dashboard/agent_status.ui b/xivoclient/src/xlets/agent_status_dashboard/agent_status.ui
+index 3bb6bde2..00dfabdf 100644
+--- a/xivoclient/src/xlets/agent_status_dashboard/agent_status.ui
++++ b/xivoclient/src/xlets/agent_status_dashboard/agent_status.ui
+@@ -21,7 +21,7 @@
+    <string>Form</string>
+   </property>
+   <property name="styleSheet">
+-   <string notr="true">#AgentStatus {background: #0f0;}
++   <string>#AgentStatus {background: #0f0;}
+ #AgentAvailable {background: #6aa84f;}
+ #AgentInUse {background: #e69138;}
+ #AgentOnCallNonACDIncomingInternal {background: #f198b7;}
+@@ -69,7 +69,7 @@
+     </font>
+    </property>
+    <property name="text">
+-    <string notr="true">Disponible</string>
++    <string>Disponible</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+@@ -92,7 +92,7 @@
+     </font>
+    </property>
+    <property name="text">
+-    <string notr="true">P. J. Jacques</string>
++    <string>P. J. Jacques</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+diff --git a/xivoclient/src/xlets/conference/conference_widget.ui b/xivoclient/src/xlets/conference/conference_widget.ui
+index 6583f0a0..8d2226be 100644
+--- a/xivoclient/src/xlets/conference/conference_widget.ui
++++ b/xivoclient/src/xlets/conference/conference_widget.ui
+@@ -11,7 +11,7 @@
+    </rect>
+   </property>
+   <property name="windowTitle">
+-   <string notr="true">Form</string>
++   <string>Form</string>
+   </property>
+   <property name="qss_tags" stdset="0">
+    <stringlist notr="true">
+diff --git a/xivoclient/src/xlets/directory/directory_widget.ui b/xivoclient/src/xlets/directory/directory_widget.ui
+index ac0127be..561639b6 100644
+--- a/xivoclient/src/xlets/directory/directory_widget.ui
++++ b/xivoclient/src/xlets/directory/directory_widget.ui
+@@ -17,7 +17,7 @@
+    <item>
+     <widget class="QLineEdit" name="entry_filter">
+      <property name="text">
+-      <string notr="true"/>
++      <!--string notr="true"/-->
+      </property>
+     </widget>
+    </item>
+diff --git a/xivoclient/src/xlets/fax/fax_widget.ui b/xivoclient/src/xlets/fax/fax_widget.ui
+index 0d4e3f83..e42f8563 100644
+--- a/xivoclient/src/xlets/fax/fax_widget.ui
++++ b/xivoclient/src/xlets/fax/fax_widget.ui
+@@ -11,10 +11,10 @@
+    </rect>
+   </property>
+   <property name="windowTitle">
+-   <string notr="true">Form</string>
++   <string>Form</string>
+   </property>
+   <property name="styleSheet">
+-   <string notr="true"/>
++   <!--string notr="true"/-->
+   </property>
+   <property name="qss_tags" stdset="0">
+    <stringlist notr="true">
+@@ -299,14 +299,14 @@
+      <item>
+       <widget class="QLabel" name="status_icon">
+        <property name="text">
+-        <string notr="true"/>
++        <!--string notr="true"/-->
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="status_text">
+        <property name="text">
+-        <string notr="true"/>
++        <!--string notr="true"/-->
+        </property>
+        <property name="xlet_p" stdset="0">
+         <stringlist/>
+diff --git a/xivoclient/src/xlets/history/history_widget.ui b/xivoclient/src/xlets/history/history_widget.ui
+index 73447bc8..fd31eaef 100644
+--- a/xivoclient/src/xlets/history/history_widget.ui
++++ b/xivoclient/src/xlets/history/history_widget.ui
+@@ -11,7 +11,7 @@
+    </rect>
+   </property>
+   <property name="windowTitle">
+-   <string notr="true">History</string>
++   <string>History</string>
+   </property>
+   <property name="qss_tags" stdset="0">
+    <stringlist notr="true">
+diff --git a/xivoclient/src/xlets/identity/identity.ui b/xivoclient/src/xlets/identity/identity.ui
+index a5f8a877..0f1e84ce 100644
+--- a/xivoclient/src/xlets/identity/identity.ui
++++ b/xivoclient/src/xlets/identity/identity.ui
+@@ -23,13 +23,13 @@
+    </size>
+   </property>
+   <property name="windowTitle">
+-   <string notr="true"/>
++   <!--string notr="true"/-->
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+-   <string notr="true">#IdentityWidget {
++   <string>#IdentityWidget {
+     background: #2c2927;
+ }
+ 
+@@ -50,7 +50,7 @@ QToolButton::menu-indicator {
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+-    <string notr="true">QPushButton, QPushButton:checked, QPushButton:pressed{
++    <string>QPushButton, QPushButton:checked, QPushButton:pressed{
+     top: 0px;
+     left: 0px;
+ 	border: 0px;
+@@ -115,7 +115,7 @@ QToolButton::menu-indicator {
+     </font>
+    </property>
+    <property name="styleSheet">
+-    <string notr="true">color: white;</string>
++    <string>color: white;</string>
+    </property>
+    <property name="text">
+     <string/>
+@@ -139,7 +139,7 @@ QToolButton::menu-indicator {
+     </font>
+    </property>
+    <property name="styleSheet">
+-    <string notr="true">color: #A09790</string>
++    <string>color: #A09790</string>
+    </property>
+    <property name="text">
+     <string/>
+@@ -161,7 +161,7 @@ QToolButton::menu-indicator {
+     </font>
+    </property>
+    <property name="styleSheet">
+-    <string notr="true">color: white;</string>
++    <string>color: white;</string>
+    </property>
+    <property name="text">
+     <string>VOICEMAIL</string>
+@@ -183,7 +183,7 @@ QToolButton::menu-indicator {
+     </font>
+    </property>
+    <property name="styleSheet">
+-    <string notr="true">color: #a09790;</string>
++    <string>color: #a09790;</string>
+    </property>
+    <property name="text">
+     <string/>
+@@ -205,7 +205,7 @@ QToolButton::menu-indicator {
+     <string>Call your voicemail</string>
+    </property>
+    <property name="styleSheet">
+-    <string notr="true">QPushButton, QPushButton:checked, QPushButton:pressed{
++    <string>QPushButton, QPushButton:checked, QPushButton:pressed{
+     top: 0px;
+     left: 0px;
+ 	border: 0px;
+@@ -240,7 +240,7 @@ QToolButton::menu-indicator {
+     </rect>
+    </property>
+    <property name="styleSheet">
+-    <string notr="true">QToolButton, QToolButton:checked, QToolButton:pressed{
++    <string>QToolButton, QToolButton:checked, QToolButton:pressed{
+     top: 0px;
+     left: 0px;
+     background-color: transparent;
+@@ -282,7 +282,7 @@ QToolButton::menu-indicator {
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+-    <string notr="true">QToolButton, QToolButton:checked, QToolButton:pressed{
++    <string>QToolButton, QToolButton:checked, QToolButton:pressed{
+     top: 0px;
+     left: 0px;
+     background-color: transparent;
+@@ -330,7 +330,7 @@ QToolButton::menu-indicator {
+     </font>
+    </property>
+    <property name="styleSheet">
+-    <string notr="true">color: #A09790;</string>
++    <string>color: #A09790;</string>
+    </property>
+    <property name="text">
+     <string extracomment="default for unread voicemail messages"/>
+@@ -352,7 +352,7 @@ QToolButton::menu-indicator {
+     </font>
+    </property>
+    <property name="styleSheet">
+-    <string notr="true">QLineEdit {
++    <string>QLineEdit {
+     background-color: #e8e4e2;
+     border-radius: 14px;
+     padding-left: 14px;
+@@ -374,7 +374,7 @@ QToolButton::menu-indicator {
+     </rect>
+    </property>
+    <property name="styleSheet">
+-    <string notr="true">QToolButton, QToolButton:checked, QToolButton:pressed{
++    <string>QToolButton, QToolButton:checked, QToolButton:pressed{
+     top: 0px;
+     left: 0px;
+ 	border: 0px;
+diff --git a/xivoclient/src/xlets/people/people_widget.ui b/xivoclient/src/xlets/people/people_widget.ui
+index 23c5f3ac..ab2b370b 100644
+--- a/xivoclient/src/xlets/people/people_widget.ui
++++ b/xivoclient/src/xlets/people/people_widget.ui
+@@ -99,7 +99,7 @@
+           </font>
+          </property>
+          <property name="text">
+-          <string notr="true"/>
++          <!--string notr="true"/-->
+          </property>
+          <property name="placeholderText">
+           <string>search</string>
+@@ -207,7 +207,7 @@
+        <item>
+         <widget class="QLabel" name="status_icon">
+          <property name="text">
+-          <string notr="true"/>
++          <!--string notr="true"/-->
+          </property>
+         </widget>
+        </item>
+diff --git a/xivoclient/src/xlets/services/services_widget.ui b/xivoclient/src/xlets/services/services_widget.ui
+index 23cfbf65..0a695a92 100644
+--- a/xivoclient/src/xlets/services/services_widget.ui
++++ b/xivoclient/src/xlets/services/services_widget.ui
+@@ -14,10 +14,10 @@
+    </rect>
+   </property>
+   <property name="windowTitle">
+-   <string notr="true">Form</string>
++   <string>Form</string>
+   </property>
+   <property name="styleSheet">
+-   <string notr="true"/>
++   <!--string notr="true"/-->
+   </property>
+   <property name="qss_tags" stdset="0">
+    <stringlist notr="true">
+@@ -156,7 +156,7 @@
+      <item row="2" column="2">
+       <widget class="QFrame" name="fwdunc_input_button_group">
+        <property name="styleSheet">
+-        <string notr="true">border: </string>
++        <string>border: </string>
+        </property>
+        <property name="qss_tags" stdset="0">
+         <stringlist notr="true">
+@@ -191,7 +191,7 @@
+         <item>
+          <widget class="QPushButton" name="fwdunc_button">
+           <property name="text">
+-           <string notr="true"/>
++           <!--string notr="true"/-->
+           </property>
+           <property name="icon">
+            <iconset resource="../../../xivoclient.qrc">
+@@ -283,7 +283,7 @@
+         <item>
+          <widget class="QPushButton" name="fwdna_button">
+           <property name="text">
+-           <string notr="true"/>
++           <!--string notr="true"/-->
+           </property>
+           <property name="icon">
+            <iconset resource="../../../xivoclient.qrc">
+@@ -367,7 +367,7 @@
+         <item>
+          <widget class="QPushButton" name="fwdbusy_button">
+           <property name="text">
+-           <string notr="true"/>
++           <!--string notr="true"/-->
+           </property>
+           <property name="icon">
+            <iconset resource="../../../xivoclient.qrc">
+diff --git a/xivoclient/src/xlets/switchboard/current_call.ui b/xivoclient/src/xlets/switchboard/current_call.ui
+index 40627900..4dcd104d 100644
+--- a/xivoclient/src/xlets/switchboard/current_call.ui
++++ b/xivoclient/src/xlets/switchboard/current_call.ui
+@@ -98,7 +98,7 @@
+              <string>Answer</string>
+             </property>
+             <property name="shortcut">
+-             <string notr="true">Return</string>
++             <string>Return</string>
+             </property>
+            </widget>
+           </item>
+@@ -128,7 +128,7 @@
+              </font>
+             </property>
+             <property name="text">
+-             <string notr="true">F3</string>
++             <string>F3</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+@@ -147,7 +147,7 @@
+              <string>Call</string>
+             </property>
+             <property name="shortcut">
+-             <string notr="true"/>
++             <!--string notr="true"/-->
+             </property>
+            </widget>
+           </item>
+@@ -164,7 +164,7 @@
+              </font>
+             </property>
+             <property name="text">
+-             <string notr="true">F4</string>
++             <string>F4</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+@@ -203,7 +203,7 @@
+              </font>
+             </property>
+             <property name="text">
+-             <string notr="true">F5</string>
++             <string>F5</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+@@ -242,7 +242,7 @@
+              </font>
+             </property>
+             <property name="text">
+-             <string notr="true">F7</string>
++             <string>F7</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+@@ -279,7 +279,7 @@
+              </font>
+             </property>
+             <property name="text">
+-             <string notr="true">F8</string>
++             <string>F8</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+@@ -295,7 +295,7 @@
+              </font>
+             </property>
+             <property name="toolTip">
+-             <string notr="true"/>
++             <!--string notr="true"/-->
+             </property>
+             <property name="text">
+              <string>Hangup</string>
+@@ -364,7 +364,7 @@
+             </font>
+            </property>
+            <property name="styleSheet">
+-            <string notr="true">border: 1px solid black;</string>
++            <string>border: 1px solid black;</string>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+diff --git a/xivoclient/src/xlets/switchboard/switchboard.ui b/xivoclient/src/xlets/switchboard/switchboard.ui
+index 73db78d6..4bf5db91 100644
+--- a/xivoclient/src/xlets/switchboard/switchboard.ui
++++ b/xivoclient/src/xlets/switchboard/switchboard.ui
+@@ -14,7 +14,7 @@
+    <enum>Qt::TabFocus</enum>
+   </property>
+   <property name="windowTitle">
+-   <string notr="true">Form</string>
++   <string>Form</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+@@ -80,7 +80,7 @@
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+-            <string notr="true"/>
++            <!--string notr="true"/-->
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+@@ -150,7 +150,7 @@
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+-            <string notr="true"/>
++            <!--string notr="true"/-->
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+-- 
+2.17.1
+

@@ -8,7 +8,7 @@
 Name:     xivo-client
 Summary:  A desktop client to the XiVO Open Source IPBX
 Version:  2018.01
-Release:  1.git%{gh_short}%{?dist}
+Release:  2.git%{gh_short}%{?dist}
 License:  GPLv3
 Group:    Applications/System
 URL:      https://gitlab.com/xivo.solutions/xivo-client-qt/
@@ -18,6 +18,7 @@ Source1:  %{name}.desktop
 Source2:  xivoclient
 
 Patch0:   xivo-client-premake.patch
+Patch1:   0001-try-to-fix-F-28-build-issue.patch
 
 BuildRequires: qt5-qtbase-devel
 BuildRequires: qt5-linguist
@@ -48,6 +49,7 @@ Development files for %{name}
 %prep
 %setup -q -n %{gh_project}-%{gh_commit}-%{gh_commit}
 %patch0 -p1
+%patch1 -p1
 #gh_date: git log -1 --pretty=%ct {commit}
 sed -i premake.sh \
     -e "s|GIT_DIR=.*|GIT_DIR=$(pwd)|" \
@@ -103,7 +105,9 @@ rm -rf %{buildroot}
 
 
 %changelog
-* Mon Jan 08 2018 Johan Cwiklinski <jcwiklinski AT teclib DOT com> 2018.01-git1399a27
+* Tue Jul 03 2018 Johan Cwiklinski <jcwiklinski AT teclib DOT com> 2018.01-2.git1399a27
+- Add quick and dirty patch for f28
+* Mon Jan 08 2018 Johan Cwiklinski <jcwiklinski AT teclib DOT com> 2018.01-1.git1399a27
 - Update to 2018.01
 * Wed Aug 09 2017 Johan Cwiklinski <jcwiklinski AT teclib DOT com> 2017.02-git9dc5591f
 - Update to 2017.02
