@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=XiVO-Client
+Comment=XiVO IPBX Desktop Client
+Categories=Application;Network;ContactManagement;InstantMessaging;TelephonyTools;Qt;
+Exec=xivoclient
+Terminal=false
+Type=Application
+Icon=/usr/share/xivo-client/xivoicon.ico
